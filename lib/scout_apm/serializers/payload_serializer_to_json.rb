@@ -20,7 +20,7 @@ module ScoutApm
 
         # For the old style of metric serializing.
         def rearrange_the_metrics(metrics)
-          metrics.to_a.map do |meta, stats|
+          metrics.each.map do |meta, stats|
             stats.as_json.merge(:key => meta.as_json)
           end
         end
